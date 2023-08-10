@@ -42,7 +42,22 @@ Note: After running any of the install commands, a lock file will be created (e.
 This is the entry point of the server. It sets up the routes and other required stuff (could be e.g. database connections) and starts the server.
 
 ### `package.json`
-This file contains the metadata of the project, as well as the scripts that can be run with `npm run <script-name>`. The most important scripts are:
+This file is essential to make any Node project work. It defines the dependencies of the project, i.e. the packages (usually from the [npm registry](https://docs.npmjs.com/about-the-public-npm-registry)) that the project depends on. The dependencies are split into two categories: `dependencies` and `devDependencies`. The `dependencies` are the packages that are required for the project to work _after_ it has been _built_ (i.e. converted to plain JavaScript), while the `devDependencies` are packages that are only required for development, e.g. `TypeScript` for typechecking the code as you write it, or `nodemon` for hot-reloading the server during development. Furthermore, one can define scripts. Usually you would define scripts that are used for development and scripts that are used for building the project. Finally, the `package.json` file contains metadata about the project, such as the name, version, author, license, etc.
+
+### Regular dependencies
+The only regular (runtime) dependency is [`express`](https://expressjs.com/), a popular, minimalistic framework for building Node.js web servers.
+
+### Dev dependencies
+The project has the following dev dependencies:
+
+- [`@types/express`](https://www.npmjs.com/package/@types/express): This package contains TypeScript type definitions for `express`.
+- [`@types/node`](https://www.npmjs.com/package/@types/node): This package contains type definitions for Node.js.
+- [`nodemon`](https://www.npmjs.com/package/nodemon): This package is used for hot-reloading the server during development.
+- [`ts-node`](https://www.npmjs.com/package/ts-node): This package is used for running the server directly from a TypeScript file (i.e. without having to compile it to JavaScript first).
+- [`tsconfig-paths`](https://www.npmjs.com/package/tsconfig-paths): This package is used for setting up path aliases in TypeScript and required to make the path aliases in `tsconfig.json` work when running the server with `ts-node`.
+
+### Scripts
+`package.json` allows you to specify scripts that can be run with your package manager of choice, each serving a different purpose. The following scripts are included:
 - `dev`: Runs the server in development mode, i.e. with hot-reloading (i.e. automatically restarting the server when you change the code)
 - `build`: Compiles the TypeScript code to JavaScript
 - `start`: Runs the server (after it has been built)
