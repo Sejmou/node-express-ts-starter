@@ -1,0 +1,11 @@
+# dependencies, i.e. downloaded code of npm packages used by this project
+node_modules
+
+# output of builds
+dist
+
+# environment variables (store stuff like API keys and other things that should NEVER be checked into the repo but are required by your app here)
+.env
+
+# annoying files created by macOS lol
+.DS_Store

@@ -1,0 +1,30 @@
+{
+  "name": "node-express-ts-starter",
+  "version": "0.0.1",
+  "description": "A Node.js (Express) server starter project with TypeScript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "author": {
+    "name": "Your Name Here",
+    "url": "https://your-github-url-here.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.2.5",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "build": "rm -rf dist && tsc"
+  }
+}
