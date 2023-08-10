@@ -6,12 +6,10 @@ const port = process.env.PORT || 3000;
 // defining the main function as async allows us to use await inside it, e.g. if our server needs to connect to a database
 async function main() {
   console.log('Starting server...');
-  const app = express();
 
-  // this could be a database connection, or some other async operation
-  const waitForASecond = () =>
-    new Promise(resolve => setTimeout(resolve, 1000));
-  await waitForASecond();
+  await setup();
+
+  const app = express();
 
   app.get('/', (req, res) => {
     const name = req.query.name || 'world';
@@ -29,3 +27,9 @@ async function main() {
 }
 
 main();
+
+async function setup() {
+  // this is just here for demo purposes, remove or replace with something useful after you understand how it works
+  // this could be a database connection, or some other async operation whose results are needed before the server can start
+  await new Promise(resolve => setTimeout(resolve, 100));
+}

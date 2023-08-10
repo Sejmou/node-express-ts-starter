@@ -71,5 +71,9 @@
     },
     "baseUrl": "."
   },
+  "ts-node": {
+    // required to make path aliases work in ts-node (see also: https://typestrong.org/ts-node/docs/paths/)
+    "require": ["tsconfig-paths/register"]
+  },
   "exclude": ["node_modules", "test", "types", "dist"]
 }
